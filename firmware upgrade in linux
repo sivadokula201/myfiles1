@@ -1,0 +1,263 @@
+[root@eclprdabz102 ~]# dmidecode -s bios-version
+# SMBIOS implementations newer than version 2.7 are not
+# fully supported by this version of dmidecode.
+P70
+[root@eclprdabz102 ~]#
+
+
+[root@eclprdabz102 ~]# dmidecode | grep "Firmware Revision"
+        Firmware Revision: 2.70
+[root@eclprdabz102 ~]#
+[root@eclprdabz102 tmp]# rpm -Uvh firmware-system-p70-2019.05.24-1.1.i386.rpm
+warning: firmware-system-p70-2019.05.24-1.1.i386.rpm: Header V3 RSA/SHA256 Signature, key ID 26c2b797: NOKEY
+Preparing...                ########################################### [100%]
+   1:firmware-system-p70    ########################################### [100%]
+[root@eclprdabz102 tmp]#
+[root@eclprdabz102 tmp]#
+
+[root@eclprdabz102 tmp]# dmidecode -s bios-version
+# SMBIOS implementations newer than version 2.7 are not
+# fully supported by this version of dmidecode.
+P70
+[root@eclprdabz102 tmp]# rpm -qlp firmware-system-p70-2019.05.24-1.1.i386.rpm
+warning: firmware-system-p70-2019.05.24-1.1.i386.rpm: Header V3 RSA/SHA256 Signature, key ID 26c2b797: NOKEY
+/usr/lib/i386-linux-gnu/firmware-system-p70-2019.05.24-1.1
+/usr/lib/i386-linux-gnu/firmware-system-p70-2019.05.24-1.1/.cpq_package.inc
+/usr/lib/i386-linux-gnu/firmware-system-p70-2019.05.24-1.1/.setup
+/usr/lib/i386-linux-gnu/firmware-system-p70-2019.05.24-1.1/CP040097.xml
+/usr/lib/i386-linux-gnu/firmware-system-p70-2019.05.24-1.1/CPQP7013.6B8
+/usr/lib/i386-linux-gnu/firmware-system-p70-2019.05.24-1.1/cpqsfp70.cfg
+/usr/lib/i386-linux-gnu/firmware-system-p70-2019.05.24-1.1/hpsetup
+/usr/lib/i386-linux-gnu/firmware-system-p70-2019.05.24-1.1/setup
+/usr/lib/i386-linux-gnu/hp-scexe-compat
+/usr/lib/i386-linux-gnu/hp-scexe-compat/CP040097.scexe
+/usr/lib/i386-linux-gnu/scexe-compat
+/usr/lib/i386-linux-gnu/scexe-compat/CP040097.scexe
+[root@eclprdabz102 tmp]# /usr/lib/i386-linux-gnu/firmware-system-p70-2019.05.24-1.1/hpsetup
+Flash Engine Version: Linux-1.5.9.5-2
+
+Name: Online ROM Flash Component for Linux - HP ProLiant DL380p Gen8 (P70) Servers
+New Version: 05/24/2019
+
+Current Version: 07/01/2015
+
+The software is installed but is not up to date.
+
+Do you want to upgrade the software to a newer version (y/n) ?y
+
+Flash in progress do not interrupt or your system may become unusable.
+Working............................................................
+The installation procedure completed successfully.
+
+A reboot is required to finish the installation completely.
+Do you want to reboot your system now?
+A reboot is required to finish the installation completely.
+Do you want to reboot your system now? y
+
+Broadcast message from root@eclprdabz102
+        (/dev/pts/1) at 15:40 ...
+
+The system is going down for reboot NOW!
+[root@eclprdabz102 tmp]#
+
+
+# dmidecode 2.11
+SMBIOS 2.8 present.
+# SMBIOS implementations newer than version 2.7 are not
+# fully supported by this version of dmidecode.
+189 structures occupying 6201 bytes.
+Table at 0xBFBDB000.
+
+Handle 0x0000, DMI type 0, 24 bytes
+BIOS Information
+        Vendor: HP
+        Version: P70
+        Release Date: 05/24/2019
+        Address: 0xF0000
+        Runtime Size: 64 kB
+        ROM Size: 8192 kB
+        Characteristics:
+                PCI is supported
+                PNP is supported
+                BIOS is upgradeable
+                BIOS shadowing is allowed
+                ESCD support is available
+                Boot from CD is supported
+                Selectable boot is supported
+                EDD is supported
+                5.25"/360 kB floppy services are supported (int 13h)
+                5.25"/1.2 MB floppy services are supported (int 13h)
+                3.5"/720 kB floppy services are supported (int 13h)
+                Print screen service is supported (int 5h)
+                8042 keyboard services are supported (int 9h)
+                Serial services are supported (int 14h)
+                Printer services are supported (int 17h)
+                CGA/mono video services are supported (int 10h)
+				
+				
+				
+[root@eclprdabz102 tmp]# rpm -Uvh kmod-hpsa-3.4.20-100.rhel6u8.i686.rpm
+warning: kmod-hpsa-3.4.20-100.rhel6u8.i686.rpm: Header V3 RSA/SHA256 Signature, key ID 26c2b797: NOKEY
+error: Failed dependencies:
+        kernel(__alloc_percpu) = 0x50c89f23 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(__create_workqueue_key) = 0xbb638200 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(__dynamic_dev_dbg) = 0xbf121c5f is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(__kmalloc) = 0x12da5bb2 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(__mutex_init) = 0x8e4a7c5b is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(__pci_register_driver) = 0x7997cb91 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(__per_cpu_offset) = 0x280f9f14 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(_dev_info) = 0x47468292 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(blk_queue_free_tags) = 0xf37cce19 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(blk_queue_init_tags) = 0x59bc6ad2 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(cancel_delayed_work_sync) = 0x381c4bb1 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(copy_from_user) = 0xf2a644fb is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(copy_to_user) = 0x2da418b5 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(cpu_bit_bitmap) = 0x161e5180 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(cpu_online_mask) = 0xda1ce447 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(destroy_workqueue) = 0x0025fa07 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(dev_err) = 0x716e76e1 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(dev_get_drvdata) = 0x93b38b05 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(dev_printk) = 0x167118d3 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(dev_set_drvdata) = 0xf6d62bd3 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(dev_warn) = 0xd8167e77 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(dma_alloc_from_coherent) = 0x097599d5 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(dma_ops) = 0x43041aa8 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(dma_release_from_coherent) = 0x3c061aef is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(flush_workqueue) = 0x0fe03e22 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(get_jiffies_64) = 0x37e74642 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(irq_set_affinity_hint) = 0xa0fa1742 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(kmem_cache_alloc_trace) = 0x0884f145 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(malloc_sizes) = 0xc288f8ce is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(mem_section) = 0x5c760099 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(memcmp) = 0x5152e605 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(memcpy) = 0x2e60bace is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(memset) = 0x2bc95bd4 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(module_layout) = 0x0041086e is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(mutex_lock_interruptible) = 0xa07ceb16 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(mutex_unlock) = 0x1ece28e2 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(pci_bus_read_config_word) = 0xde95d1ee is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(pci_bus_write_config_word) = 0x2107fe08 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(pci_disable_device) = 0x9c22db12 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(pci_disable_msi) = 0xb2d7221b is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(pci_disable_msix) = 0xf12b7b43 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(pci_enable_device) = 0xf3cc0b6c is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(pci_enable_msi_block) = 0xc9d8a365 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(pci_enable_msix) = 0xda37924a is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(pci_find_capability) = 0xbd3a0a87 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(pci_release_regions) = 0xc041dc0c is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(pci_request_regions) = 0xc2db98b4 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(pci_restore_state) = 0x93faa3d4 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(pci_save_state) = 0x2c7745cd is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(pci_set_consistent_dma_mask) = 0x78c5b4fa is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(pci_set_dma_mask) = 0xc8f49417 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(pci_set_master) = 0x1868710d is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(pci_set_power_state) = 0x11703947 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(pci_unregister_driver) = 0xec88c4a4 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(per_cpu__current_task) = 0x7d0bea0b is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(printk) = 0xb72397d5 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(pv_irq_ops) = 0x8ff4079b is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(queue_work_on) = 0x4797912a is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(sas_attach_transport) = 0x89079941 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(sas_end_device_alloc) = 0xfc957514 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(sas_phy_add) = 0x32f3c053 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(sas_phy_alloc) = 0xdc89bd22 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(sas_phy_free) = 0xd685b40b is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(sas_port_add) = 0xd348c334 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(sas_port_add_phy) = 0xb6610cc8 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(sas_port_alloc_num) = 0xeaeb4643 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(sas_port_delete) = 0x84e49da8 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(sas_port_delete_phy) = 0xe16e45d4 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(sas_port_free) = 0x23a718e6 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(sas_release_transport) = 0x2fa19210 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(sas_rphy_add) = 0x6e838e7c is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(schedule) = 0x4292364c is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(schedule_delayed_work) = 0x91009452 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(scnprintf) = 0x374ed073 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(scsi_add_device) = 0x30323264 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(scsi_add_host_with_dma) = 0xbc6d41b6 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(scsi_adjust_queue_depth) = 0xd0a85002 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(scsi_block_requests) = 0xf3d8d9d0 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(scsi_device_lookup) = 0xdcf7de4e is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(scsi_device_put) = 0x450384eb is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(scsi_dma_map) = 0x1bced8eb is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(scsi_dma_unmap) = 0x7f8a510b is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(scsi_host_alloc) = 0x8e9efce5 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(scsi_host_get) = 0xfcfc190f is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(scsi_host_put) = 0x4178fe8b is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(scsi_remove_device) = 0xff843e81 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(scsi_remove_host) = 0x479704d0 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(scsi_scan_host) = 0xba43abeb is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(scsi_track_queue_full) = 0xf6a850fd is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(scsi_unblock_requests) = 0xbc7511c2 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(snprintf) = 0x701d0ebd is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(strncmp) = 0x6c2e3320 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(strncpy) = 0xb6ed1e53 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+        kernel(x86_dma_fallback_dev) = 0x99b12865 is needed by kmod-hpsa-3.4.20-100.rhel6u8.i686
+[root@eclprdabz102 tmp]#
+
+
+[root@eclprdabz102 tmp]# rpm -Uvh kmod-hpsa-3.4.10-124.rhel6u1.x86_64.rpm
+warning: kmod-hpsa-3.4.10-124.rhel6u1.x86_64.rpm: Header V3 RSA/SHA1 Signature, key ID b1275ea3: NOKEY
+Preparing...                ########################################### [100%]
+   1:kmod-hpsa              ########################################### [100%]
+[root@eclprdabz102 tmp]#
+[root@eclprdabz102 tmp]# rpm -Uvh kmod-hpsa-3.4.10-124.rhel6u2.x86_64.rpm
+warning: kmod-hpsa-3.4.10-124.rhel6u2.x86_64.rpm: Header V3 RSA/SHA1 Signature, key ID b1275ea3: NOKEY
+Preparing...                ########################################### [100%]
+   1:kmod-hpsa              ########################################### [100%]
+You have new mail in /var/spool/mail/root
+[root@eclprdabz102 tmp]# rpm -Uvh kmod-hpsa-3.4.10-124.rhel6u3.x86_64.rpm
+warning: kmod-hpsa-3.4.10-124.rhel6u3.x86_64.rpm: Header V3 RSA/SHA1 Signature, key ID b1275ea3: NOKEY
+Preparing...                ########################################### [100%]
+   1:kmod-hpsa              ########################################### [100%]
+[root@eclprdabz102 tmp]# rpm -Uvh kmod-hpsa-3.4.10-124.rhel6u4.x86_64.rpm
+warning: kmod-hpsa-3.4.10-124.rhel6u4.x86_64.rpm: Header V3 RSA/SHA1 Signature, key ID b1275ea3: NOKEY
+Preparing...                ########################################### [100%]
+   1:kmod-hpsa              ########################################### [100%]
+[root@eclprdabz102 tmp]# rpm -Uvh kmod-hpsa-3.4.10-124.rhel6u5.x86_64.rpm
+warning: kmod-hpsa-3.4.10-124.rhel6u5.x86_64.rpm: Header V3 RSA/SHA1 Signature, key ID b1275ea3: NOKEY
+Preparing...                ########################################### [100%]
+   1:kmod-hpsa              ########################################### [100%]
+[root@eclprdabz102 tmp]# rpm -Uvh kmod-hpsa-3.4.10-124.rhel6u6.x86_64.rpm
+warning: kmod-hpsa-3.4.10-124.rhel6u6.x86_64.rpm: Header V3 RSA/SHA1 Signature, key ID b1275ea3: NOKEY
+error: Failed dependencies:
+        kernel(_dev_info) = 0x9b3277f3 is needed by kmod-hpsa-3.4.10-124.rhel6u6.x86_64
+        kernel(dev_err) = 0x8502d858 is needed by kmod-hpsa-3.4.10-124.rhel6u6.x86_64
+        kernel(dev_printk) = 0xabd7b07b is needed by kmod-hpsa-3.4.10-124.rhel6u6.x86_64
+        kernel(dev_warn) = 0x7b274cdb is needed by kmod-hpsa-3.4.10-124.rhel6u6.x86_64
+we have stoppped the update after receiving error.
+
+[root@eclprdabz102 tmp]# rpm -Uvh hp-firmware-smartarray-46a4d957a7-8.32-1.1.x86_64.rpm
+warning: hp-firmware-smartarray-46a4d957a7-8.32-1.1.x86_64.rpm: Header V3 RSA/SHA256 Signature, key ID 26c2b797: NOKEY
+Preparing...                ########################################### [100%]
+   1:hp-firmware-smartarray-########################################### [100%]
+[root@eclprdabz102 tmp]# rpm -qlp hp-firmware-smartarray-46a4d957a7-8.32-1.1.x86_64.rpm
+warning: hp-firmware-smartarray-46a4d957a7-8.32-1.1.x86_64.rpm: Header V3 RSA/SHA256 Signature, key ID 26c2b797: NOKEY
+/usr/lib/x86_64-linux-gnu/hp-firmware-smartarray-46a4d957a7-8.32-1.1
+/usr/lib/x86_64-linux-gnu/hp-firmware-smartarray-46a4d957a7-8.32-1.1/.cpq_package.inc
+/usr/lib/x86_64-linux-gnu/hp-firmware-smartarray-46a4d957a7-8.32-1.1/.hpsetup
+/usr/lib/x86_64-linux-gnu/hp-firmware-smartarray-46a4d957a7-8.32-1.1/746374726C00.firmware.bin.fw
+/usr/lib/x86_64-linux-gnu/hp-firmware-smartarray-46a4d957a7-8.32-1.1/747365700069443232323073620076312E303200.Baz-102.fuf.fw
+/usr/lib/x86_64-linux-gnu/hp-firmware-smartarray-46a4d957a7-8.32-1.1/CP033363.xml
+/usr/lib/x86_64-linux-gnu/hp-firmware-smartarray-46a4d957a7-8.32-1.1/d2220sb.bin.fw
+/usr/lib/x86_64-linux-gnu/hp-firmware-smartarray-46a4d957a7-8.32-1.1/hpsetup
+/usr/lib/x86_64-linux-gnu/hp-firmware-smartarray-46a4d957a7-8.32-1.1/libhpsetup.so
+/usr/lib/x86_64-linux-gnu/hp-scexe-compat
+/usr/lib/x86_64-linux-gnu/hp-scexe-compat/CP033363.scexe
+[root@eclprdabz102 tmp]# /usr/lib/x86_64-linux-gnu/hp-firmware-smartarray-46a4d957a7-8.32-1.1/hpsetup
+Supplemental Update / Online ROM Flash Component for Linux (x64) - Smart Array P220i, P222, P420i, P420, P421, P721m, and P822 (8.32), searching...
+1) Smart Array P420i Smart Array P420i in Slot 0 (6.68)
+Select which devices to flash [#,#-#,(A)ll,(N)one]> A
+Flashing Smart Array P420i in Slot 0 [ 6.68 -> 8.32 ]
+Deferred flashes will be performed on next system reboot
+============ Summary ============
+Smart Component Finished
+
+Summary Messages
+================
+Reboot needed to activate 1 new FW image
+
+Exit Status: 1
+Deferred flashes will be performed on next system reboot
+A reboot is required to complete update.
+[root@eclprdabz102 tmp]#
